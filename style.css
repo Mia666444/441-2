@@ -1,0 +1,236 @@
+/* 重置一些基本的元素 */
+body, h1, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* 设置整个页面的字体和背景 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 设置header的样式 */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* 设置h1标题的样式 */
+h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* 设置图片的样式 */
+img {
+    display: block;
+    margin: 10px auto;
+}
+
+/* 设置导航栏的样式 */
+nav {
+    background: #333;
+    color: #fff;
+}
+
+/* 设置导航链接的样式 */
+nav ul li {
+    list-style: none;
+    display: inline;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background: grey;
+    text-decoration: none;
+}
+
+/* 设置下拉菜单的样式 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* 显示下拉菜单 */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* 设置下拉菜单链接的样式 */
+.dropdown-menu li a {
+    color: wheat;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* 改变鼠标悬停在下拉菜单链接上的颜色 */
+.dropdown-menu li a:hover {
+    background-color: #ddd;
+}
+
+/* 为下拉菜单添加过渡效果 */
+.dropdown-menu li a {
+    transition: background-color 0.3s;
+}
+
+/* 设置下拉菜单的层级 */
+.dropdown {
+    position: relative;
+}
+
+/* 重置一些基本样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Banner Styles */
+.banner {
+    background: url('u.webp') no-repeat center center/cover;
+    background-size: 65% 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+/* Image Styles */
+img {
+    display: block;
+    margin: 20px auto;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed; /* 修改这里 */
+    bottom: 0; /* 确保footer在底部 */
+    width: 100%; /* 使footer宽度为100%，覆盖整个视口宽度 */
+}
+.course {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 0 10px; /* Add spacing between courses */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.course:first-child {
+    margin-left: 0; /* Remove left margin for the first course */
+  }
+  .course:last-child {
+    margin-right: 0; /* Remove right margin for the last course */
+  }
+  .course h3 {
+    margin: 0;
+    padding-bottom: 5px;
+  }
+  .add-to-cart {
+    background-color: #5cb85c;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+  }
+  .add-to-cart:hover {
+    background-color: #4cae4c;
+    cursor: pointer;
+  }
+  .container {
+    display: flex;
+    justify-content: center; /* Center the courses container */
+    flex-wrap: nowrap; /* Ensure items stay on the same line */
+    padding: 0;
+  }
+  .button {
+    background-color: #0c5989;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
