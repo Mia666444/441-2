@@ -28,47 +28,136 @@
             <li><a href="showcase.html">Showcase</a></li>
         </ul>
     </nav>
-    <div class="container">
-        <div class="course" data-id="BSBMPG666" data-price="10">
-            <h3>BSBMPG666</h3>
-            <p>Price: $10</p>
-            <input type="number" value="1" class="quantity-input">
-            <button class="button add">Add to Cart</button>
-        </div>
-        <div class="course" data-id="BSBMPG777" data-price="15">
-            <h3>BSBMPG777</h3>
-            <p>Price: $15</p>
-            <input type="number" value="1" class="quantity-input">
-            <button class="button add">Add to Cart</button>
-        </div>
-        <div class="course" data-id="BSBMPG888" data-price="20">
-            <h3>BSBMPG888</h3>
-            <p>Price: $20</p>
-            <input type="number" value="1" class="quantity-input">
-            <button class="button add">Add to Cart</button>
-        </div>
-        <div class="course" data-id="BSBMPG999" data-price="25">
-            <h3>BSBMPG999</h3>
-            <p>Price: $25</p>
-            <input type="number" value="1" class="quantity-input">
-            <button class="button add">Add to Cart</button>
-        </div>
-        <div class="course" data-id="BSBMPG111" data-price="30">
-            <h3>BSBMPG111</h3>
-            <p>Price: $30</p>
-            <input type="number" value="1" class="quantity-input">
-            <button class="button add">Add to Cart</button>
-        </div>
-    </div>
-    <div class="shopping-cart">
-        <h2>Shopping Cart</h2>
-        <table id="cart-table">
-            <!-- Table body will be added dynamically -->
-        </table>
-        <p class="total">Total: $<span id="cart-total">0.00</span></p>
-        <button class="button Checkout" onclick="checkout()">Checkout</button>
-        <button class="button Clear" onclick="clearCart()">Clear Cart</button>
-    </div>
+<!-- Shopping Cart Table -->
+<table id="cart-table">
+    <!-- Product row: BSBMPG666 -->
+    <tr>
+        <td>BSBMPG666</td>
+        <td>
+            <button onclick="changeQuantity(0, -1)">-</button>
+            <input type="number" value="0" min="0" id="quantity-0" onchange="updateQuantity(0, this.value)">
+            <button onclick="changeQuantity(0, 1)">+</button>
+        </td>
+        <td>$10.00</td>
+        <td id="item-total-0">$0.00</td>
+        <td><button onclick="removeFromCart(0)">Remove</button></td>
+    </tr>
+    <!-- Product row: BSBMPG777 -->
+    <tr>
+        <td>BSBMPG777</td>
+        <td>
+            <button onclick="changeQuantity(1, -1)">-</button>
+            <input type="number" value="0" min="0" id="quantity-1" onchange="updateQuantity(1, this.value)">
+            <button onclick="changeQuantity(1, 1)">+</button>
+        </td>
+        <td>$15.00</td>
+        <td id="item-total-1">$0.00</td>
+        <td><button onclick="removeFromCart(1)">Remove</button></td>
+    </tr>
+    <!-- Product row: BSBMPG888 -->
+    <tr>
+        <td>BSBMPG888</td>
+        <td>
+            <button onclick="changeQuantity(2, -1)">-</button>
+            <input type="number" value="0" min="0" id="quantity-2" onchange="updateQuantity(2, this.value)">
+            <button onclick="changeQuantity(2, 1)">+</button>
+        </td>
+        <td>$20.00</td>
+        <td id="item-total-2">$0.00</td>
+        <td><button onclick="removeFromCart(2)">Remove</button></td>
+    </tr>
+    <!-- Product row: BSBMPG999 -->
+    <tr>
+        <td>BSBMPG999</td>
+        <td>
+            <button onclick="changeQuantity(3, -1)">-</button>
+            <input type="number" value="0" min="0" id="quantity-3" onchange="updateQuantity(3, this.value)">
+            <button onclick="changeQuantity(3, 1)">+</button>
+        </td>
+        <td>$25.00</td>
+        <td id="item-total-3">$0.00</td>
+        <td><button onclick="removeFromCart(3)">Remove</button></td>
+    </tr>
+    <!-- Product row: BSBMPG111 -->
+    <tr>
+        <td>BSBMPG111</td>
+        <td>
+            <button onclick="changeQuantity(4, -1)">-</button>
+            <input type="number" value="0" min="0" id="quantity-4" onchange="updateQuantity(4, this.value)">
+            <button onclick="changeQuantity(4, 1)">+</button>
+        </td>
+        <td>$30.00</td>
+        <td id="item-total-4">$0.00</td>
+        <td><button onclick="removeFromCart(4)">Remove</button></td>
+    </tr>
+</table>
+
+<!-- Total -->
+<div id="cart-total">Total: $0.00</div>
+
+<script>
+// Cart items with price and quantity
+let cart = [
+    {name: "BSBMPG666", price: 10, quantity: 0},
+    {name: "BSBMPG777", price: 15, quantity: 0},
+    {name: "BSBMPG888", price: 20, quantity: 0},
+    {name: "BSBMPG999", price: 25, quantity: 0},
+    {name: "BSBMPG111", price: 30, quantity: 0}
+];
+
+// Update cart and calculate total
+function updateCart() {
+    let total = 0;
+
+    // Update each product's subtotal and total
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        document.getElementById(`item-total-${index}`).textContent = `$${itemTotal.toFixed(2)}`;
+        total += itemTotal;
+    });
+
+    // Update total
+    document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Update quantity of a specific product
+function updateQuantity(index, newQuantity) {
+    const quantity = parseInt(newQuantity);
+    if (isNaN(quantity) || quantity < 0) {
+        alert("Invalid quantity!");
+        return;
+    }
+
+    // Update quantity in the cart
+    cart[index].quantity = quantity;
+
+    // Recalculate total
+    updateCart();
+}
+
+// Change quantity (increment or decrement)
+function changeQuantity(index, change) {
+    const newQuantity = cart[index].quantity + change;
+
+    // Ensure quantity is not negative
+    if (newQuantity >= 0) {
+        cart[index].quantity = newQuantity;
+    }
+
+    // Update cart
+    updateCart();
+}
+
+// Remove product from cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove product from cart
+    updateCart(); // Update cart display
+}
+
+// Initialize cart
+updateCart();
+</script>
+
     <footer>
         <p>Copyright © Mia 2024 All rights reserved.</p>
     </footer>
