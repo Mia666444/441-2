@@ -1,4 +1,4 @@
-// Initialize the shopping cart
+/* MiaITA1 */
 let cart = [];
 
 // Get the elements
