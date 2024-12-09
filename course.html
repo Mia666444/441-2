@@ -28,138 +28,79 @@
             <li><a href="showcase.html">Showcase</a></li>
         </ul>
     </nav>
-<!-- Shopping Cart Table -->
-<table id="cart-table">
-    <!-- Product row: BSBMPG666 -->
-    <tr>
-        <td>BSBMPG666</td>
-        <td>
-            <button onclick="changeQuantity(0, -1)">-</button>
-            <input type="number" value="0" min="0" id="quantity-0" onchange="updateQuantity(0, this.value)">
-            <button onclick="changeQuantity(0, 1)">+</button>
-        </td>
-        <td>$10.00</td>
-        <td id="item-total-0">$0.00</td>
-        <td><button onclick="removeFromCart(0)">Remove</button></td>
-    </tr>
-    <!-- Product row: BSBMPG777 -->
-    <tr>
-        <td>BSBMPG777</td>
-        <td>
-            <button onclick="changeQuantity(1, -1)">-</button>
-            <input type="number" value="0" min="0" id="quantity-1" onchange="updateQuantity(1, this.value)">
-            <button onclick="changeQuantity(1, 1)">+</button>
-        </td>
-        <td>$15.00</td>
-        <td id="item-total-1">$0.00</td>
-        <td><button onclick="removeFromCart(1)">Remove</button></td>
-    </tr>
-    <!-- Product row: BSBMPG888 -->
-    <tr>
-        <td>BSBMPG888</td>
-        <td>
-            <button onclick="changeQuantity(2, -1)">-</button>
-            <input type="number" value="0" min="0" id="quantity-2" onchange="updateQuantity(2, this.value)">
-            <button onclick="changeQuantity(2, 1)">+</button>
-        </td>
-        <td>$20.00</td>
-        <td id="item-total-2">$0.00</td>
-        <td><button onclick="removeFromCart(2)">Remove</button></td>
-    </tr>
-    <!-- Product row: BSBMPG999 -->
-    <tr>
-        <td>BSBMPG999</td>
-        <td>
-            <button onclick="changeQuantity(3, -1)">-</button>
-            <input type="number" value="0" min="0" id="quantity-3" onchange="updateQuantity(3, this.value)">
-            <button onclick="changeQuantity(3, 1)">+</button>
-        </td>
-        <td>$25.00</td>
-        <td id="item-total-3">$0.00</td>
-        <td><button onclick="removeFromCart(3)">Remove</button></td>
-    </tr>
-    <!-- Product row: BSBMPG111 -->
-    <tr>
-        <td>BSBMPG111</td>
-        <td>
-            <button onclick="changeQuantity(4, -1)">-</button>
-            <input type="number" value="0" min="0" id="quantity-4" onchange="updateQuantity(4, this.value)">
-            <button onclick="changeQuantity(4, 1)">+</button>
-        </td>
-        <td>$30.00</td>
-        <td id="item-total-4">$0.00</td>
-        <td><button onclick="removeFromCart(4)">Remove</button></td>
-    </tr>
-</table>
 
-<!-- Total -->
-<div id="cart-total">Total: $0.00</div>
+    <!-- Shopping Cart Table -->
+    <table id="cart-table">
+        <!-- Product row: BSBMPG666 -->
+        <tr>
+            <td>BSBMPG666</td>
+            <td>
+                <button onclick="changeQuantity(0, -1)">-</button>
+                <input type="number" value="0" min="0" id="quantity-0" onchange="updateQuantity(0, this.value)">
+                <button onclick="changeQuantity(0, 1)">+</button>
+            </td>
+            <td>$10.00</td>
+            <td id="item-total-0">$0.00</td>
+            <td><button onclick="removeFromCart(0)">Remove</button></td>
+        </tr>
+        <!-- Product row: BSBMPG777 -->
+        <tr>
+            <td>BSBMPG777</td>
+            <td>
+                <button onclick="changeQuantity(1, -1)">-</button>
+                <input type="number" value="0" min="0" id="quantity-1" onchange="updateQuantity(1, this.value)">
+                <button onclick="changeQuantity(1, 1)">+</button>
+            </td>
+            <td>$15.00</td>
+            <td id="item-total-1">$0.00</td>
+            <td><button onclick="removeFromCart(1)">Remove</button></td>
+        </tr>
+        <!-- Product row: BSBMPG888 -->
+        <tr>
+            <td>BSBMPG888</td>
+            <td>
+                <button onclick="changeQuantity(2, -1)">-</button>
+                <input type="number" value="0" min="0" id="quantity-2" onchange="updateQuantity(2, this.value)">
+                <button onclick="changeQuantity(2, 1)">+</button>
+            </td>
+            <td>$20.00</td>
+            <td id="item-total-2">$0.00</td>
+            <td><button onclick="removeFromCart(2)">Remove</button></td>
+        </tr>
+        <!-- Product row: BSBMPG999 -->
+        <tr>
+            <td>BSBMPG999</td>
+            <td>
+                <button onclick="changeQuantity(3, -1)">-</button>
+                <input type="number" value="0" min="0" id="quantity-3" onchange="updateQuantity(3, this.value)">
+                <button onclick="changeQuantity(3, 1)">+</button>
+            </td>
+            <td>$25.00</td>
+            <td id="item-total-3">$0.00</td>
+            <td><button onclick="removeFromCart(3)">Remove</button></td>
+        </tr>
+        <!-- Product row: BSBMPG111 -->
+        <tr>
+            <td>BSBMPG111</td>
+            <td>
+                <button onclick="changeQuantity(4, -1)">-</button>
+                <input type="number" value="0" min="0" id="quantity-4" onchange="updateQuantity(4, this.value)">
+                <button onclick="changeQuantity(4, 1)">+</button>
+            </td>
+            <td>$30.00</td>
+            <td id="item-total-4">$0.00</td>
+            <td><button onclick="removeFromCart(4)">Remove</button></td>
+        </tr>
+    </table>
 
-<script>
-// Cart items with price and quantity
-let cart = [
-    {name: "BSBMPG666", price: 10, quantity: 0},
-    {name: "BSBMPG777", price: 15, quantity: 0},
-    {name: "BSBMPG888", price: 20, quantity: 0},
-    {name: "BSBMPG999", price: 25, quantity: 0},
-    {name: "BSBMPG111", price: 30, quantity: 0}
-];
-
-// Update cart and calculate total
-function updateCart() {
-    let total = 0;
-
-    // Update each product's subtotal and total
-    cart.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        document.getElementById(`item-total-${index}`).textContent = `$${itemTotal.toFixed(2)}`;
-        total += itemTotal;
-    });
-
-    // Update total
-    document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
-}
-
-// Update quantity of a specific product
-function updateQuantity(index, newQuantity) {
-    const quantity = parseInt(newQuantity);
-    if (isNaN(quantity) || quantity < 0) {
-        alert("Invalid quantity!");
-        return;
-    }
-
-    // Update quantity in the cart
-    cart[index].quantity = quantity;
-
-    // Recalculate total
-    updateCart();
-}
-
-// Change quantity (increment or decrement)
-function changeQuantity(index, change) {
-    const newQuantity = cart[index].quantity + change;
-
-    // Ensure quantity is not negative
-    if (newQuantity >= 0) {
-        cart[index].quantity = newQuantity;
-    }
-
-    // Update cart
-    updateCart();
-}
-
-// Remove product from cart
-function removeFromCart(index) {
-    cart.splice(index, 1); // Remove product from cart
-    updateCart(); // Update cart display
-}
-
-// Initialize cart
-updateCart();
-</script>
+    <!-- Total -->
+    <div id="cart-total">Total: $0.00</div>
 
     <footer>
         <p>Copyright © Mia 2024 All rights reserved.</p>
     </footer>
+
+    <!-- Link to script.js -->
+    <script src="script.js"></script> <!-- Changed to script.js -->
 </body>
 </html>
