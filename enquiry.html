@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enquiry Form</title>
     <link rel="stylesheet" href="style.css">
+    <script src="enquiry.js" defer></script> <!-- Linking to the external JS file for handling form submission -->
 </head>
 <body>
     <header>
@@ -31,7 +32,7 @@
     <main>
         <section class="enquiry-form">
             <h2>Register for a Course</h2>
-            <form action="/submit_enquiry" method="post">
+            <form id="enquiry-form">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br><br>
 
@@ -42,7 +43,6 @@
                 <select id="course" name="course">
                     <option value="course1">Course 1</option>
                     <option value="course2">Course 2</option>
-                    <!-- Add more courses as needed -->
                 </select><br><br>
 
                 <label for="phone">Phone:</label>
