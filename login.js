@@ -1,23 +1,41 @@
-// login.js - Handle form submission and redirection
-
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('login-form');
+    const loginForm = document.getElementById('login-form');
+    const logoutButton = document.getElementById('logout-button');
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
+    // Check if the user is already logged in (via localStorage)
+    const username = localStorage.getItem('username');
 
-        // Get the username and password values
+    // If the user is logged in, show a welcome message or user info
+    if (username) {
+        alert("You are already logged in as " + username);
+        window.location.href = 'home.html'; // Redirect to home or dashboard page
+    }
+
+    // If the form is submitted, check the credentials and log the user in
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get the form data
         const username = document.getElementById('login-username').value;
         const password = document.getElementById('login-password').value;
 
-        // (Optional) Add your form validation logic here (check if fields are empty)
+        // (Optional) Add validation logic here (check if fields are empty)
         if (username && password) {
-            // Optional: Check user credentials or perform any necessary validation
+            // Store the username in localStorage (simulating login state)
+            localStorage.setItem('username', username);
 
-            // Redirect to home.html if credentials are correct
-            window.location.href = 'index.html'; // Replace with the correct URL for your home page
+            // Redirect the user to the home page or cart page
+            window.location.href = 'home.html'; // Change to your desired page after login
         } else {
             alert('Please fill in both fields');
         }
     });
+
+    // If there's a logout button, remove the user info from localStorage
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function() {
+            localStorage.removeItem('username');
+            window.location.href = 'login.html'; // Redirect to login page after logout
+        });
+    }
 });
