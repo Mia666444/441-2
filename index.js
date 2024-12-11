@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if the user is already logged in (via localStorage)
+    // Check if the user is logged in (via localStorage)
     const username = localStorage.getItem('username');
 
     // If the user is not logged in, redirect them to the login page
     if (!username) {
+        // User is not logged in, redirect to login page
         alert("You must log in to access the content.");
-        window.location.href = 'login.html'; // Redirect to login if not logged in
+        window.location.href = 'login.html'; // Redirect to login page if not logged in
     } else {
         // If logged in, show the logout button
         document.getElementById('logout-button').style.display = 'block';
